@@ -18,4 +18,6 @@ export const text = () => {
     const gender:"male" | "female" = "male";
     const value:string | number | null = "Hello World";
 
+    
+
 } 
