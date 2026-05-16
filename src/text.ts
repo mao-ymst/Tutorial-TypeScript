@@ -1,6 +1,6 @@
 export const text = () => {
     
-    //基本のdataの形
+    //1 基本のdataの形
     const name:string = "nyon";
     const age:number = 5;
     const isStudent:boolean = false;
@@ -18,13 +18,14 @@ export const text = () => {
     const gender:"male" | "female" = "male";
     const value:string | number | null = "Hello World";
 
-    //問題：引数に文字列の配列を受け取り　その中身を順番を逆にして返す関数を作成する
+    //2 問題：引数に文字列の配列を受け取り　その中身を順番を逆にして返す関数を作成する
     //例：　reverseArray(["a","b","c"]) => ["c,"b","a"]
     //実際にデータ型を定義してみる：変数、引数、返り値
 
 
     //引数の隣：　の隣にstring[]を置くことで　これを返り値に指定することができる
-    const reverseArray = (arr: string[]):string[] => {
+    //3 オプション引数について　二つ目の所 ?をつけると　あってもなくても成立する
+    const reverseArray = (arr: string[], hasTom?):string[] => {
 
         // return arr.reverse();　既存の順番を逆にできる機能
 
@@ -34,11 +35,17 @@ export const text = () => {
             reversedArray.push(arr[index]); //indexが０より大きいなら新しい箱に入れる　まず指定した一番後ろの数を入れて
             index--; // indexの番号を１つずつ減らしていく　3->2->1みたいに
         }
+
+        //3 
+        if(hasTom) {
+            reversedArray.push('Tome');
+        }
         return reversedArray; //中身が新しくなったら配列を返す
 
     }
 
-    console.log(reverseArray(["a","b","c"]));
+    //3 hasTom->true
+    console.log(reverseArray(["a","b","c"],true));
 } 
 
 text();
